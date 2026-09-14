@@ -5,7 +5,7 @@ all: ic-screen.pdf ic-print.pdf ic-print-cover.pdf index.html
 print: ic-print.pdf
 
 %.pdf: %.tex olprevision.tex FORCE_MAKE
-	latexmk -dvi- -ps- -pdf $<
+	latexmk -dvi- -ps- -lualatex $<
 
 index.html: README.md  webpage-template.html ic-screen.pdf
 	convert ic-screen.pdf[0] ic.png
@@ -15,5 +15,4 @@ clean:
 	latexmk -c ic-screen.tex ic-print.tex ic-print-cover.tex
 
 olprevision.tex: FORCE_MAKE
-	../../misc/makeolprevision ../..
-
+	OpenLogic/misc/makeolprevision OpenLogic

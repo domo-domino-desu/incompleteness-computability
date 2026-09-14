@@ -1,5 +1,20 @@
 # Incompleteness and Computability
 
+This fork uses the Chinese translation of the Open Logic Text as the
+`OpenLogic` submodule. Clone it with all nested assets:
+
+```sh
+git clone --recurse-submodules https://github.com/domo-domino-desu/incompleteness-computability.git
+```
+
+To pick up a newer Open Logic translation, update and commit the submodule
+pointer:
+
+```sh
+git submodule update --remote --recursive OpenLogic
+git add OpenLogic
+```
+
 ![Book Cover](https://ic.openlogicproject.org/ic.png)
 
 Textbook on Gödel's incompleteness theorems and computability
