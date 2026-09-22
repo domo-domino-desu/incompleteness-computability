@@ -1,41 +1,7 @@
-The \textbf{lambda calculus} is an early model of computation. Its
-syntax is very simple: $\lambd$-terms are generated inductively from
-variables $x$, $y$, \dots{} and constants $f$, $g$, \dots{} by the
-operations of \textbf{application} and \textbf{lambda abstraction}. If
-$M$ and~$N$ are $\lambd$-terms, then the application of $M$ to~$N$,
-$(MN)$, is a term. And if $N$ is a term and $x$ a variable, then
-$\lambd[x][M]$ is a term. Intuitively, terms of the lambda calculus
-stand for functions. An application term ($MN)$ stands for the result
-of applying the function $M$ to~$N$. And if $M$ is a term, then
-$\lambd[x][M]$ is the function of~$x$ specified by~$M$. In
-$\lambd[x][M]$, every occurrence of~$x$ is bound by $\lambd[x]$ in
-much the same way that they are in, say, $\lforall[x][A]$.
+\textbf{$\lambd$ 演算}是一个早期的计算模型。其语法非常简单：$\lambd$-项是通过\textbf{应用}和\textbf{$\lambd$ 抽象}这两种运算，从变元$x$、$y$、\dots{}和常项$f$、$g$、\dots{}出发归纳生成的。如果$M$和~$N$是$\lambd$-项，那么$M$对~$N$的应用，即$(MN)$，也是一个项。而如果$N$是一个项且$x$是一个变元，那么$\lambd[x][M]$也是一个项。直观上，$\lambd$ 演算中的项代表函数。应用项$(MN)$代表将函数$M$应用于~$N$的结果。而如果$M$是一个项，那么$\lambd[x][M]$就是由~$M$所指定的、关于~$x$的函数。在$\lambd[x][M]$中，$x$的每一次出现都被$\lambd[x]$约束，这与比如在$\lforall[x][A]$中的约束方式非常相似。
 
-Lambda terms of the form $(\lambd[x][M])N$ can be simplified to
-$\Subst{M}{N}{x}$ by replacing every free occurrence of~$x$ in~$M$
-by~$N$. Successive simplification steps generate the notion of
-(\textbf{$\beta$-reduction}). We write $M \red N$ to mean that $M$
-can be simplified to~$N$ in a finite number of steps. A term that
-cannot be $\beta$-reduced to another is called a \textbf{normal form}.
-The \textbf{normal form} of a term is unique if it exists. (This
-follows from the \textbf{Church-Rosser property}.) Not every term
-reduces to a normal form.
+形如$(\lambd[x][M])N$的 $\lambd$ 项可以简化为$\Subst{M}{N}{x}$，方法是将~$M$中所有~$x$的自由出现替换为~$N$。连续的简化步骤便产生了（\textbf{$\beta$-归约}）的概念。我们写作$M \red N$ 来表示$M$可以在有限步内简化到~$N$。一个不能被$\beta$-归约为其他项的项称为\textbf{范式}。一个项的\textbf{范式}如果存在，则是唯一的。（这可由\textbf{Church（邱奇）-Rosser（罗瑟）性质}推出。）并非每个项都能归约为范式。
 
-We can take special $\lambd$-terms to represent the natural numbers.
-The \textbf{Church numeral}~$\num{n}$ for~$n$ is the term
-$\lambd[x][f^n(x)]$, where $f^n(x)$ stands for $(f(f(\dots(f x))))$ with
-$n$ occurrences of~$f$. Using these numerals, we can define when a
-function~$h\colon \Nat \to \Nat$ is \textbf{$\lambd$-definable},
-namely when there is a term~$H$ such that $(H\, \num{n})$
-$\beta$-reduces to the normal form~$\num{m}$, whenever $h(n) = m$.
-Using \textbf{Currying}, it is possible to extend this definition to
-functions of more than one argument.
+我们可以选取特殊的$\lambd$-项来表示自然数。对应于~$n$的\textbf{丘奇数}~$\num{n}$是项 $\lambd[x][f^n(x)]$，其中$f^n(x)$表示 $(f(f(\dots(f x))))$，含有~$n$次$f$的出现。利用这些数字，我们可以定义一个函数~$h\colon \Nat \to \Nat$何时是\textbf{$\lambd$-可定义的}，即存在一个项~$H$，使得只要$h(n) = m$，$(H\, \num{n})$就能$\beta$-归约为范式~$\num{m}$。利用\textbf{柯里化}，可以将这个定义推广到多自变元函数。
 
-It turns out that the $\lambd$-definable functions are exactly the
-partial recursive functions. This is proved by showing that the
-initial functions $\Zero$, $\Succ$, and~$\Proj{i}{j}$ are
-$\lambd$-definable, and that moreover that the $\lambd$-definable
-functions are closed under composition, primitive recursion, and
-unbounded minimization. This shows that all partial recursive functions
-are $\lambd$-definable. Using coding of $\lambd$-terms one can show
-the converse, that every $\lambd$-computable function is partial recursive.
+事实上，$\lambd$-可定义的函数恰好就是部分递归函数。其证明思路是：首先证明初始函数$\Zero$、$\Succ$和~$\Proj{i}{j}$是$\lambd$-可定义的，进而证明$\lambd$-可定义的函数在复合、原始递归和无界极小化运算下封闭。这表明所有部分递归函数都是$\lambd$-可定义的。利用对$\lambd$-项的编码，可以证明其逆也成立：每个$\lambd$-可计算的函数都是部分递归的。

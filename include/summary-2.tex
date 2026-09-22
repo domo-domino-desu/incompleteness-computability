@@ -1,46 +1,37 @@
-In order to show that $\Th{Q}$ represents all computable functions, we
-need a precise model of computability that we can take as the basis
-for a proof.  There are, of course, many models of computability, such
-as Turing machines. One model that plays a significant role
-historically---it's one of the first models proposed, and is also the
-one used by G\"odel himself---is that of the \textbf{recursive
-functions}.  The recursive functions are a class of arithmetical
-functions---that is, their domain and range are the natural
-numbers---that can be defined from a few basic functions using a few
-operations. The basic functions are $\Zero$, $\Succ$, and the
-projection functions. The operations are \textbf{composition},
-\textbf{primitive recursion}, and \textbf{unbounded search}.
-Composition is simply a general version of ``chaining together''
-functions: first apply one, then apply the other to the result.
-Primitive recursion defines a new function~$f$ from two functions $g$,
-$h$ already defined, by stipulating that the value of $f$ for $0$ is
-given by~$g$, and the value for any number $n+1$ is given by $h$
-applied to $f(n)$.  Functions that can be defined using just these two
-principles are called \textbf{primitive recursive}. A relation is
-primitive recursive iff its characteristic function is.
+为了证明 $\Th{Q}$ 能表示所有可计算函数，
+我们需要一个精确的可计算性模型，作为证明的基础。
+当然，可计算性模型有许多种，例如图灵机。
+有一个在历史上扮演了重要角色的模型——它是最早被提出的模型之一，
+也是 G\"odel 本人使用的模型——那就是\textbf{递归函数}。
+递归函数是一类算术函数——即定义域和值域都是自然数——
+它们可以从几个基本函数出发，通过若干种运算来定义。
+基本函数是 $\Zero$、$\Succ$ 和投影函数。
+运算是\textbf{复合}、\textbf{原始递归}和\textbf{无界搜索}。
+复合就是将函数“链接”在一起的一般形式：先应用一个函数，
+再将另一个函数应用于其结果。
+原始递归从两个已定义的函数 $g$、$h$ 定义一个新函数~$f$，
+规定 $f$ 在 $0$ 处的值由~$g$ 给出，
+而在任意数 $n+1$ 处的值由 $h$ 作用于 $f(n)$ 给出。
+仅用这两条原则就能定义的函数称为\textbf{原始递归的}。
+一个关系是原始递归的，当且仅当其特征函数是原始递归的。
 
-It turns out that a whole list of interesting functions and relations
-are primitive recursive (such as addition, multiplication,
-exponentiation, divisibility), and that we can define new primitive
-recursive functions and relations from old ones using principles such
-as bounded quantification and bounded minimization. In particular,
-this allowed us to show that we can deal with \emph{sequences} of
-numbers in primitive recursive ways. That is, there is a way to
-``code'' sequences of numbers as single numbers in such a way that we
-can compute the $i$-the element, the length, the concatenation of two
-sequences, etc., all using primitive recursive functions operating on
-these codes.
+结果表明，一大批有趣的函数和关系都是原始递归的（例如加法、乘法、指数、整除性），
+而且我们可以利用有界量化和有界极小化等原则，从已有的原始递归函数和关系出发，
+定义出新的原始递归函数和关系。
+特别地，这使我们能够说明，可以用原始递归的方式处理数的\emph{序列}。
+也就是说，存在一种将数的序列“编码”为单个数的方法，使得我们能够计算第 $i$ 个元素、
+序列长度、两个序列的连接等等，
+而所有这些计算都由作用于这些编码的原始递归函数来完成。
 
-To obtain the partial recursive functions, we finally added
-definition by \textbf{unbounded search} to composition and primitive
-recursion. To get the total computable functions, we restricted
-unbounded search to \textbf{regular} functions. A function~$g(x, y)$
-is regular iff, for every~$y$ it takes the value~$0$ for at least
-one~$x$. If $f$ is regular, the least $x$ such that $g(x, y) = 0$
-always exists, and can be found simply by computing all the values of
-$g(0, y)$, $g(1, y)$, etc., until one of them is $= 0$. The resulting
-function~$f(y) = \umin{x}{g(x, y) = 0}$ is the function defined by
-unbounded search from~$g$. It is always total and computable. The
-resulting set of functions are called \textbf{general recursive}. One
-version of the Church-Turing Thesis says that the computable
-arithmetical functions are exactly the general recursive ones.
+为了得到部分递归函数，我们最终在复合和原始递归之外，
+又添加了基于\textbf{无界搜索}的定义方式。
+为了得到全可计算函数，我们将无界搜索限制在\textbf{正则}函数上。
+一个函数~$g(x, y)$ 是正则的，当且仅当对每个~$y$，
+它至少在某个~$x$ 处取值为~$0$。
+如果 $g$ 是正则的，那么使得 $g(x, y) = 0$ 的最小 $x$ 总是存在的，
+并且只需依次计算 $g(0, y)$、$g(1, y)$ 等等的值，
+直到其中有一个等于 $0$，即可找到。
+由此得到的函数~$f(y) = \umin{x}{g(x, y) = 0}$ 就是由~$g$ 经无界搜索定义的函数。
+它始终是全函数且可计算的。
+如此得到的函数集合称为\textbf{一般递归函数}。
+Church-Turing（丘奇-图灵）论题的一个版本断言，可计算的算术函数恰好就是一般递归函数。

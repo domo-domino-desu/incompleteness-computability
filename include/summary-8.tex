@@ -1,45 +1,27 @@
-\textbf{Second-order logic} is an extension of first-order logic by
-variables for relations and functions, which can be
-quantified. Structures for second-order logic are just like
-first-order structures and give the interpretations of all non-logical
-symbols of the language.  Variable assignments, however, also assign
-relations and functions on the domain to the second-order
-variables. The satisfaction relation is defined for second-order
-!!{formula}s just like in the first-order case, but extended to deal
-with second-order variables and quantifiers.
+\textbf{二阶逻辑}是一阶逻辑的扩展，它引入了可被量化的关系变元和函数变元。
+二阶逻辑的结构同一阶结构一样，给出语言中所有非逻辑符号的解释。
+然而，变元指派还要将论域上的关系和函数指派给二阶变元。
+二阶公式的满足关系的定义方式与一阶情形相同，但扩充为可处理二阶变元和量词。
 
-Second-order quantifiers make second-order logic \textbf{more
-  expressive} than first-order logic.  For instance, the identity
-relation on the domain of a structure can be defined without~$\eq$, by
-$\lforall[X][(X(x) \liff X(y))]$. Second-order logic can express the
-\textbf{transitive closure} of a relation, which is not expressible in
-first-order logic.  Second-order quantifiers can also express
-properties of the domain, that it is finite or infinite,
-!!{enumerable} or !!{nonenumerable}. This means that, e.g., there is a
-second-order !!{sentence}~$\fn{Inf}$ such that $\Sat{M}{\fn{Inf}}$ iff
-$\Domain{M}$ is infinite. Importantly, these are \textbf{pure}
-second-order sentences, i.e., they contain no non-logical
-symbols. Because of the compactness and L\"owenheim-Skolem theorems,
-there are no first-order sentences that have these properties.  It
-also shows that the \textbf{compactness and L\"owenheim-Skolem
-  theorems fail for second-order logic}.
+二阶量词使得二阶逻辑的\textbf{表达能力}强于一阶逻辑。
+例如，可以不使用~$\eq$，而通过 $\lforall[X][(X(x) \liff X(y))]$ 来定义结构论域上的等词关系。
+二阶逻辑可以表达关系的\textbf{传递闭包}，而这在一阶逻辑中是不可表达的。
+二阶量词还能表达论域的性质，即论域是有穷的还是无穷的，是可数的还是不可数的。
+例如，这意味着存在一个二阶语句~$\fn{Inf}$，使得 $\Sat{M}{\fn{Inf}}$ 当且仅当 $\Domain{M}$ 是无穷的。
+重要的是，这些是\textbf{纯}二阶语句，即它们不含任何非逻辑符号。
+由于紧致性定理和勒文海姆-斯科伦定理，不存在具有这些性质的一阶语句。
+这也表明，\textbf{紧致性定理和勒文海姆-斯科伦定理在二阶逻辑中不成立}。
 
-Second-order quantification also makes it possible to replace
-first-order schemas by single sentences. For instance,
-\textbf{second-order arithmetic}~$\Th{PA^2}$ is comprised of the
-axioms of~$\Th{Q}$ plus the single \textbf{induction axiom}
-\[
+二阶量化还使得我们可以用单个语句取代一阶模式。
+例如，\textbf{二阶算术}~$\Th{PA^2}$ 由~$\Th{Q}$ 的公理加上单个\textbf{归纳公理}\[
 \lforall[X][((X(\Obj 0) \land \lforall[x][(X(x) \lif X(x'))]) \lif
   \lforall[x][X(x)])].
-\]
-In contrast to first-order~$\Th{PA}$, all second-order models
-of~$\Th{PA^2}$ are isomorphic to the standard model. In other words,
-$\Th{PA^2}$ has \textbf{no non-standard models}. 
+\]构成
+与一阶~$\Th{PA}$ 不同，$\Th{PA^2}$ 的所有二阶模型都同构于标准模型。
+换言之，$\Th{PA^2}$ \textbf{没有非标准模型}。
 
-Since second-order logic includes first-order logic, it is
-undecidable. First-order logic is at least axiomatizable, i.e., it has
-a sound and complete !!{derivation} system. Second-order logic does not, it is
-\textbf{not axiomatizable}. Thus, the set of validities of
-second-order logic is highly non-computable. In fact, pure second-order
-logic can express set-theoretic claims like the \textbf{continuum
-  hypothesis}, which are independent of set theory.
+由于二阶逻辑包含一阶逻辑，它是不可判定的。
+一阶逻辑至少是可公理化的，即它有一个可靠且完备的推导系统。
+二阶逻辑则不然，它是\textbf{不可公理化的}。
+因此，二阶逻辑的有效式集合是高度不可计算的。
+事实上，纯二阶逻辑可以表达诸如\textbf{连续统假设}等集合论断言，而这些断言独立于集合论。

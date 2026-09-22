@@ -1,163 +1,87 @@
 % !TeX root = ../ic-screen.tex
 
-\chapter{Preface}
+\chapter{前言}
 
-G\"odel's incompleteness theorems are some of the most celebrated
-results in mathematical logic, if not in mathematics. The first of
-these states, roughly, that axiomatized mathematical theories that can
-carry out a minimal amount of arithmetic are either inconsistent
-(trivial, prove everything) or incomplete. In other words, if a
-mathematical theory can be written down in a compact way (is
-axiomatized), is strong enough to state and prove some basic facts
-about natural numbers, and contains no contradictions that would
-render it useless, there are always statements in the language of the
-theory it doesn't settle, i.e., sentences~$A$ such that the theory
-proves neither $A$ nor~$\lnot A$. (This is the first incompleteness
-theorem.)
+G\"odel（哥德尔）不完全性定理是数理逻辑——即使不是整个数学——中最著名的成果之一。
+其第一定理粗略地说是指，任何能够执行最少量算术的可公理化数学理论，要么是不一致的（平凡的，能证明一切），要么是不完全的。
+换言之，如果一个数学理论能够以紧凑的方式写下来（即可公理化），其强度足以陈述并证明关于自然数的一些基本事实，并且不包含使其失效的矛盾，那么在该理论的语言中，总存在一些它无法确定的陈述。
+也就是说，存在语句~$A$，使得该理论既不能证明$A$，也不能证明~$\lnot A$。（这是第一不完全性定理。）
 
-This result was historically surprising since it might be
-taken to mean that we can never write down an axiomatic theory that
-``captures'' all mathematical truths---at least if we require that
-what follows from the theory must be verified by a finite !!{derivation}
-or proof which we can mechanically test for correctness. One
-consequence of the result is that mathematical truth is undecidable:
-there cannot be a mechanical way to decide, given a statement in a
-mathematical theory, whether it follows from the axioms. Another
-consequence is that mathematical theories that are strong enough and
-consistent cannot \emph{prove} their own consistency---at least for
-the most straightforward way of formalizing the statement of the
-theory's consistency in the theory itself. (This is the second
-incompleteness theorem.)
+这一结果在历史上令人惊讶，因为它可能意味着我们永远无法写出一个能够``捕获''所有数学真理的公理理论——至少如果我们要求从理论得出的推论必须能通过有限的推导或证明来验证，而这些推导或证明的正确性又可被机械地检验。
+该结果的一个推论是，数学真理是不可判定的：不存在一种机械的方法，能够判定一个数学理论中的语句是否可以从公理推出。
+另一个推论是，足够强且一致的数学理论无法\emph{证明}其自身的一致性——至少当以最直接的方式在理论内部形式化一致性陈述时是如此。（这是第二不完全性定理。）
 
-Assuming a minimal background of formal logic on the part of the
-reader, it is actually not hard to state and prove the first two of
-these results. In fact, we do so below in \cref{inc:int::chap}. But
-the version of the result we prove makes stronger assumptions for the
-first incompleteness than actually needed. We also do not show that
-these assumptions hold for the theories discussed, and the proofs are
-not constructive: they show that theories are incomplete, but don't
-give examples of sentences that the theory leaves undecided. To do
-this in detail requires more background.
+假设读者具备形式逻辑的基本背景，实际上陈述并证明这些结果中的前两个并不困难。
+事实上，我们在下面的\cref{inc:int::chap}中就会这样做。
+但我们在此证明的版本对第一不完全性定理作了比实际所需更强的假设。
+我们也没有证明这些假设对我们所讨论的理论成立，并且证明是非构造性的：它们证明了理论是不完全的，但并未给出理论无法确定的语句的实例。
+要详细地做到这一点需要更多背景知识。
 
-In \cref{cmp:rec::chap,inc:art::chap,inc:req::chap} we provide this
-background: we discuss a model of computability (the primitive
-recursive functions), we show that by assigning numbers to symbols we
-can ``arithmetize'' the syntax and proof theory of arithmetical
-theories using primitive recursive functions and relations, and
-finally that the very simple arithmetical theory~$\Th{Q}$
-``represents'' all primitive recursive functions and relations.
+在\cref{cmp:rec::chap,inc:art::chap,inc:req::chap}中，我们提供这些背景知识：我们讨论一种可计算性模型（原始递归函数），说明通过给符号指派数字，我们可以用原始递归函数和关系来``算术化''算术理论的语法和证明论，最后证明非常简单的算术理论~$\Th{Q}$能够``表示''所有的原始递归函数和关系。
 
-With this background it is then possible to state and prove the
-incompleteness theorems in the same level of detail as any thorough
-mathematical exposition of these results would. In
-\cref{inc:inp::chap} we prove G\"odel's original version of the first
-incompleteness theorem, Rosser's improved version, the second
-incompleteness theorem, as well as L\"ob's theorem and Tarski's
-theorem about the undefinability of truth.
+有了这些背景，就有可能以与任何关于这些结果的详尽数学阐述相同的详细程度来陈述和证明不完全性定理。
+在\cref{inc:inp::chap}中，我们证明了G\"odel第一不完全性定理的原始版本、Rosser（罗瑟）的改进版本、第二不完全性定理，以及L\"ob定理和Tarski（塔斯基）关于真的不可定义性的定理。
 
-The incompleteness phenomena are closely tied to the notion of
-computability. The incompleteness theorem applies to theories that can
-be computably generated from computable sets of axioms. The mechanics
-of the arithmetization of syntax requires a model of computation
-(recursive functions) to spell out the details. And the result itself
-is structurally related to a famous result from the theory of
-computability, namely the theorem that the halting problem is
-undecidable due to Church and Turing. So it is natural to give an
-alternative description and proof of the incompleteness theorem that
-makes use of computability theory. We do this in \cref{comp-inc:chap}
-after introducing the basic theory of partial computable functions
-and decidable and computably enumerable sets.
+不完全性现象与可计算性的概念紧密相连。
+不完全性定理适用于那些能够从可计算的公理集可计算地生成的理论。
+语法的算术化的机制需要一个计算模型（递归函数）来阐明细节。
+而该结果本身在结构上与可计算性理论中的一个著名结果相关，即由Church（邱奇）和Turing（图灵）证明的停机问题不可判定这一定理。
+因此，很自然地可以从可计算性理论的角度，给出另一种关于不完全性定理的描述和证明。
+我们在引入部分可计算函数以及可判定集与可计算枚举集的基本理论之后，在\cref{comp-inc:chap}中这样做。
 
-That theories of arithmetic are incomplete means that they have models
-that not only don't look like the ``standard model'' of the natural
-numbers, but that make sentences false which are true in the standard
-model. The structure of such models is itself an interesting area of
-research. We provide a brief glimpse of it in \cref{mod:chap}.
+算术理论是不完全的，这意味着它们不仅拥有一些不像自然数``标准模型''的模型，而且还会使得一些在标准模型中为真的语句在这些模型中为假。
+这类模型的结构本身就是一个有趣的研究领域。
+我们在\cref{mod:chap}中对此作简要的探讨。
 
-The incompleteness theorems concern, in the first instance, theories
-formulated and axiomatized in first-order languages, and for which we
-assume the usual first-order consequence and provability relation. By
-G\"odel's completeness theorem, we know that the proof systems we have
-for first-order logic and theories axiomatized in it are as strong as
-we want them to be: they prove everything that follows from the
-axioms. In a sense, the incompleteness theorems say that it is exactly
-this feature of first-order logic that prevents us from writing down
-mathematical theories that ``settle every question.'' A natural way
-out would be to adopt a stronger logic with a stronger consequence
-relation which does: second-order logic. We discuss its most important
-properties in \cref{sol:chap}: it is strong enough to characterize
-arithmetical truth and it is much more expressive than first-order
-logic. Second-order arithmetic is complete. But many results that hold
-for first-order logic (such as the compactness and L\"owenheim--Skolem
-theorems) fail for second-order logic.
+不完全性定理首要关注的是那些用一阶语言表述并可公理化的理论，并且假定它们具有通常的一阶后承关系与可证性关系。
+根据G\"odel完备性定理，我们知道我们为一阶逻辑及建立于其上的理论所配备的证明系统达到了我们所希望的强度：它们能推出公理的所有后承。
+在某种意义上，不完全性定理指出，恰恰是一阶逻辑的这种特性，阻碍了我们写下能``解决每个问题''的数学理论。
+一个自然的出路是采用一种具有更强后承关系的更强逻辑：二阶逻辑。
+我们将在\cref{sol:chap}中讨论它最重要的性质：它强到足以刻画算术真，并且其表达力远超一阶逻辑。
+二阶算术是完备的。但是，许多对一阶逻辑成立的结果（如紧致性定理和L\"owenheim--Skolem定理）对二阶逻辑并不成立。
 
-This book introduces recursive functions explicitly as a model of
-computability. Representability in $\Th{Q}$ can also be taken as a
-model of computability, and along the way we (almost) show that it is
-equivalent to recursive functions. The companion book
-\href{https://slc.openlogicproject.org/}{\emph{Sets, Logic, Computation}}
-discusses the Turing machine model of computation. In
-\cref{lambda:chap}, we introduce yet another model of computability:
-the (untyped) lambda-calculus.
+本书明确引入递归函数作为可计算性的一个模型。
+$\Th{Q}$中的可表示性也可以被视为可计算性的一个模型，并且在此过程中，我们（几乎）证明了它与递归函数等价。
+配套书籍《\href{https://slc.openlogicproject.org/}{\emph{Sets, Logic, Computation}}》讨论了图灵机这一计算模型。
+在\cref{lambda:chap}中，我们还将引入另一种可计算性模型：（无类型的）λ演算。
 
-\section*{Notes for Instructors}
+\section*{给教师的说明}
 
-This is a textbook on G\"odel's incompleteness theorems and recursive
-function theory. I use it as the main text when I teach Philosophy 479
-(Logic III) at the University of Calgary. It is based on material from the
-\href{https://openlogicproject.org}{Open Logic Project}.
+这是一本关于G\"odel不完全性定理和递归函数论的教科书。
+我在卡尔加里大学教授哲学479（逻辑学III）时将其作为主要教材。
+它基于\href{https://openlogicproject.org}{开放逻辑项目}的材料。
 
-As its name suggests, the course is the third in a sequence, so
-students (and hence readers of this book) are expected to be familiar
-with first-order logic already. (Logic~I uses the text
-\href{https://forallx.openlogicproject.org}{\emph{forall x: Calgary}},
-and Logic~II another textbook based on the OLP,
-\href{https://slc.openlogicproject.org}{\emph{Sets, Logic,
-Computation}}.) The material assumed from Logic~II, however, is
-included as \cref{fol:chap,nd:chap}, and it is not absolutely
-necessary to assume more than that as background for a course based on
-this book.
+顾名思义，这门课是一个系列中的第三门，因此学生（也就是本书的读者）应该已经熟悉一阶逻辑。
+（逻辑学I使用教材《\href{https://forallx.openlogicproject.org}{\emph{forall x: Calgary}}》，
+逻辑学II使用另一本基于OLP的教材《\href{https://slc.openlogicproject.org}{\emph{Sets, Logic, Computation}}》。）
+不过，逻辑学II所要求的知识已收录在\cref{fol:chap,nd:chap}中，
+因此，基于本书授课时，并不绝对需要比此更多的预备知识。
 
-Logic III is a thirteen-week course, meeting three hours per week.
-This is typically enough to cover the material in
-\cref{inc:int::chap,cmp:rec::chap,inc:art::chap,inc:req::chap,inc:inp::chap}
-and one or two of \cref{comp-inc:chap,mod:chap,sol:chap,lambda:chap},
-depending on student interest. You may want to spend more time on the
-basics of first-order logic and especially on natural deduction, if
-students are not already familiar with it. Note that when provability
-in arithmetical theories (such as $\Th{Q}$ and $\Th{PA}$) is discussed
-in the main text, the proofs of provability claims are not given using
-a specific !!{derivation} system. Rather, that certain claims follow
-from the axioms by first-order logic is justified intuitively.
-However, \cref{deriv:chap} contains a number of examples of actual
-natural deduction !!{derivation}s from the axioms of~$\Th{Q}$.
-\Cref{inc:art::chap} carries out the arithmetization of syntax for
-natural deduction. This is a perhaps unique feature of this book; most
-other tests just do it for axiomatic !!{derivation}s. Those are much
-easier to code, but much harder to give proofs with.
+逻辑学III是一门十三周的课程，每周三课时。
+这通常足以覆盖\cref{inc:int::chap,cmp:rec::chap,inc:art::chap,inc:req::chap,inc:inp::chap}以及\cref{comp-inc:chap,mod:chap,sol:chap,lambda:chap}中的一两个专题，
+具体取决于学生的兴趣。如果学生对一阶逻辑的基础知识，特别是自然演绎还不熟悉，
+你可能需要在这些内容上花更多时间。
+请注意，在正文中讨论算术理论（如$\Th{Q}$和$\Th{PA}$）中的可证性时，
+可证性断言的证明并不是使用某个特定的推导系统给出的。
+相反，我们只是直观地论证了某些断言可以依据一阶逻辑从公理推出。
+然而，\cref{deriv:chap}包含了大量从~$\Th{Q}$的公理出发进行自然演绎推导的实际例子。
+\Cref{inc:art::chap}则为自然演绎进行语法的算术化。
+这或许是本书的一个独特之处；大多数其他教科书只对公理化推导进行算术化。
+后者的编码要容易得多，但用它来给出证明则困难得多。
 
-\section*{Acknowledgments}
+\section*{致谢}
 
-The material in the OLP used in
-\cref{inc:int::chap,cmp:rec::chap,inc:art::chap,inc:req::chap,inc:inp::chap,comp-inc:chap,lambda:chap}
-was based originally on Jeremy Avigad's lecture notes on
-``Computability and Incompleteness,'' which he contributed to the OLP.
-I have heavily revised and expanded this material. The lecture notes,
-e.g., based theories of arithmetic on an axiomatic !!{derivation} system. Here,
-we use Gentzen's standard natural deduction system (described in
-\cref{nd:chap}), which requires dealing with trees primitive
-recursively (in \cref{cmp:rec:tre:sec}) and a more complicated
-approach to the arithmetization of !!{derivation}s (in
-\cref{inc:art:pnd:sec}). The material in \cref{lambda:chap} was also
-expanded by Zesen Qian during his stay in Calgary as a Mitacs summer
-intern.
+\cref{inc:int::chap,cmp:rec::chap,inc:art::chap,inc:req::chap,inc:inp::chap,comp-inc:chap,lambda:chap}中所使用的OLP材料最初基于Jeremy Avigad贡献给OLP的
+``可计算性与不完全性''讲义。我对这些材料进行了大量修订和扩充。
+例如，原来的讲义基于公理化推导系统来构建算术理论。
+而这里我们使用Gentzen的标准自然演绎系统（在\cref{nd:chap}中描述），
+这需要用原始递归的方式处理树（在\cref{cmp:rec:tre:sec}中），
+并采用更复杂的方法对推导进行算术化（在\cref{inc:art:pnd:sec}中）。
+\cref{lambda:chap}中的材料也在钱泽森作为Mitacs暑期实习生访问卡尔加里期间由他进行了扩充。
 
-The material in the OLP on model theory and models of arithmetic in
-\cref{mod:chap} was originally taken from Aldo Antonelli's lecture
-notes on ``The Completeness of Classical Propositional and Predicate
-Logic,'' which he contributed to the OLP before his untimely death in
-2015.
+OLP中关于模型论和算术模型的材料（在\cref{mod:chap}中）
+最初取自Aldo Antonelli贡献给OLP的讲义``经典命题与谓词逻辑的完备性''。
+他在2015年不幸早逝。
 
-The biographies of logicians in \cref{bios:chap} and much of the
-material in \cref{nd:chap} are originally due to Sam Burns.
-Dana H\"agg originally worked on the material in \cref{fol:chap}.
+\cref{bios:chap}中的逻辑学家传记以及\cref{nd:chap}中的大部分材料最初由Sam Burns完成。
+Dana H\"agg最初参与了\cref{fol:chap}材料的编写工作。

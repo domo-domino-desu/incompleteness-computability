@@ -1,47 +1,7 @@
-A \emph{first-order language} consists of \emph{constant},
-\emph{function}, and \emph{predicate} symbols. Function and constant
-symbols take a specified number of arguments. In the \emph{language
-  of arithmetic}, e.g., we have a single constant symbol~$\Obj 0$, one
-1-place function symbol $\prime$, two 2-place function symbols~$+$ and
-$\times$, and one 2-place predicate symbol~$<$. From \emph{variables}
-and constant and function symbols we form the \emph{terms} of a
-language. From the terms of a language together with its predicate
-symbol, as well as the \emph{identity symbol}~$\eq$, we form the
-  \emph{atomic formulas}. And in turn from them, using the logical
-  connectives $\lnot$, $\lor$, $\land$, $\lif$, $\liff$ and the
-  quantifiers $\lforall$ and $\lexists$ we form its formulas. Since
-  we are careful to always include necessary parentheses in the
-  process of forming terms and formulas, there is always exactly one
-  way of reading a formula. This makes it possible to define things by
-  induction on the structure of formulas.
+一个\emph{一阶语言}由\emph{常项符号}、\emph{函数符号}和\emph{谓词符号}构成。函数符号和常项符号各接受指定个数的自变元。例如，在\emph{算术语言}中，我们有一个常项符号~$\Obj 0$，一个一元函数符号 $\prime$，两个二元函数符号~$+$ 和 $\times$，以及一个二元谓词符号~$<$。从\emph{变元}、常项符号和函数符号出发，我们构造语言的\emph{项}。从语言的项连同其谓词符号以及\emph{等词符号}~$\eq$，我们构造\emph{原子公式}。进而从原子公式出发，使用逻辑联结词 $\lnot$、$\lor$、$\land$、$\lif$、$\liff$ 以及量词 $\lforall$ 和 $\lexists$，我们构造该语言的公式。由于在构造项和公式时总是仔细地加上必要的括号，每个公式都恰好有一种读法。这使得我们能够对公式的结构进行归纳来定义各种概念。
 
-Occurrences of variables in formulas are sometimes governed by a
-corresponding quantifier: if a variable occurs in the \emph{scope} of
-a quantifier it is considered \emph{bound}, otherwise
-\emph{free}. These concepts all have inductive definitions, and we
-also inductively define the operation of \emph{substitution} of a term
-for a variable in a formula. Formulas without free variable
-occurrences are called \emph{sentences}.
+公式中变元的出现有时受相应量词的管辖：如果一个变元出现在量词的\emph{辖域}内，则它是\emph{约束}的，否则是\emph{自由}的。这些概念都有归纳定义，我们也归纳地定义了在公式中用项\emph{代入}变元的操作。没有自由变元出现的公式称为\emph{语句}。
 
-The \emph{semantics} for a first-order language is given by a
-\emph{structure} for that language. It consists of a \emph{domain} and
-elements of that domain are assigned to each constant symbol. Function
-symbols are interpreted by functions and relation symbols by relation
-on the domain. A function from the set of variables to the domain is
-a \emph{variable assignment}. The relation of \emph{satisfaction}
-relates structures, variable assignments and formulas;
-$\Sat{M}{!A}[s]$ is defined by induction on the structure of~$!A$.
-$\Sat{M}{!A}[s]$ only depends on the interpretation of the symbols
-actually occurring in~$!A$, and in particular does not depend on $s$
-if $!A$ contains no free variables. So if $!A$ is a sentence,
-$\Sat{M}{!A}$ if $\Sat{M}{!A}[s]$ for any (or all)~$s$.
+一阶语言的\emph{语义}由该语言的\emph{结构}给出。它由一个\emph{论域}组成，并且该论域中的元素被指派给每个常项符号。函数符号由函数解释，关系符号由论域上的关系解释。从变元集到论域的函数称为\emph{变元指派}。\emph{满足}关系将结构、变元指派和公式联系起来；$\Sat{M}{!A}[s]$ 通过对~$!A$ 的结构进行归纳来定义。$\Sat{M}{!A}[s]$ 仅依赖于实际出现在~$!A$ 中的符号的解释，特别地，如果 $!A$ 不含自由变元，则不依赖于 $s$。因此，如果 $!A$ 是语句，则当 $\Sat{M}{!A}[s]$ 对任意（或所有）~$s$ 成立时，$\Sat{M}{!A}$。
 
-The satisfaction relation is the basis for all semantic notions. A
-sentence is \emph{valid}, $\Sat{{}}{!A}$, if it is satisfied in every
-structure. A sentence $!A$ is \emph{entailed} by set of
-sentences~$\Gamma$, $\Gamma \Entails !A$, iff $\Sat{M}{!A}$ for all
-$\Struct{M}$ which satisfy every sentence in~$\Gamma$. A set~$\Gamma$
-is \emph{satisfiable} iff there is some structure that satisfies every
-sentence in~$\Gamma$, otherwise unsatisfiable. These notions are
-interrelated, e.g., $\Gamma \Entails !A$ iff $\Gamma \cup \{\lnot
-!A\}$ is unsatisfiable.
+满足关系是所有语义概念的基础。一个语句是\emph{有效的}，记作 $\Sat{{}}{!A}$，如果它在每个结构中都得到满足。语句 $!A$ 是语句集~$\Gamma$ 的\emph{语义后承}，记作 $\Gamma \Entails !A$，当且仅当所有满足~$\Gamma$ 中每一个语句的结构 $\Struct{M}$ 也都满足 $!A$。集合~$\Gamma$ 是\emph{可满足的}，当且仅当存在某个结构满足~$\Gamma$ 中的每一个语句，否则就是不可满足的。这些概念相互关联，例如，$\Gamma \Entails !A$ 当且仅当 $\Gamma \cup \{\lnot !A\}$ 是不可满足的。

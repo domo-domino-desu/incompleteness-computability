@@ -7,128 +7,48 @@
 \begin{document}
 
 \olfileid{inc}{cpi}{int}
-\olsection{Computable Enumerability and Axiomatizable Theories}
+\olsection{可计算枚举性与可公理化理论}
 
-There is a close connection between the incompleteness theorems and
-computability. This should be apparent from the fact that in order to
-obtain the proof-theoretic versions of the first and second
-incompleteness theorems, we had to first develop a fair bit of
-computable function theory. We had to define primitive recursive
-functions, show that we can arithmetize provability using primitive
-recursive functions, and show that $\Th{Q}$ represents all primitive
-recursive functions and relations, in particular the proof
-relation~$\Prf[\Th{T}]$ of any axiomatizable theory~$\Th{T}$. Two of the
-assumptions of the incompleteness theorem are essentially assumptions
-about computability. The assumption that $\Th{T}$ is axiomatizable
-means that $\Th{T}$ is axiomatized by a \emph{decidable} set of
-axioms. The assumption that $\Th{T}$ extends $\Th{Q}$ was needed to
-guarantee that $\Th{T}$ represents all primitive recursive functions
-and relations.
+不完全性定理与可计算性之间有着紧密的联系。这一点从以下事实即可看出：为了得到第一和第二不完全性定理的证明论版本，我们必须先发展相当一部分可计算函数理论。我们必须定义原始递归函数，证明可以用原始递归函数来算术化可证性，并证明 $\Th{Q}$ 表示所有原始递归函数和关系，特别是任意可公理化理论~$\Th{T}$ 的证明关系~$\Prf[\Th{T}]$。不完全性定理的两个假设本质上都是关于可计算性的假设。$\Th{T}$ 是可公理化的这一假设意味着 $\Th{T}$ 由一个\emph{可判定的}公理集所公理化。而 $\Th{T}$ 扩张 $\Th{Q}$ 这一假设，则是为了保证 $\Th{T}$ 能够表示所有原始递归函数和关系。
 
-In fact, we can generalize the incompleteness theorems by making use
-of ideas from computability theory. This requires only that our model
-of computation can handle !!{formula}s and proofs. The arithmetization of
-provability shows that models of computation that directly only apply
-to numbers can do this---via G\"odel numbering. Other models of
-computability may not require as much work, and can avoid all the
-trouble of coding sequences, !!{formula}s, and !!{derivation}s we went through
-to show that $\Prf[\Th{T}]$ is primitive recursive. For instance, a
-suitably general notion of Turing machine would allow us to represent
-!!{formula}s and proofs directly as sequences of symbols by including
-symbols for logical connectives and quantifiers, !!{variable}s,
-!!{predicate}s, etc., as symbols that are allowed on the tape.
-\emph{Some} coding will still be necessary, as Turing machines only
-allow finitely many symbols in their alphabet, but there are
-infinitely many !!{variable}s, !!{constant}s, etc. In fact, to verify
-all the details required for showing that there is a Turing machine
-that decides the proof relation would be much more complicated than
-showing that it (understood as a relation of G\"odel numbers) is
-primitive recursive.
+事实上，我们可以利用可计算性理论的思想来推广不完全性定理。这只需要求我们的计算模型能够处理公式和证明。可证性的算术化表明，那些原本只直接适用于数的计算模型（通过哥德尔编码）也能做到这一点。其他计算模型可能不需要这么多工作，可以免去我们为证明 $\Prf[\Th{T}]$ 的原始递归性而对序列、公式和推导进行编码的全部繁琐工作。例如，一个足够一般的图灵机概念可以让我们直接将公式和证明表示为符号序列，方法是允许磁带上出现逻辑联结词和量词、变元、谓词符号等符号。\emph{某些}编码仍然必不可少，因为图灵机的字母表只允许有限多个符号，而变元、常项符号等却有无限多个。事实上，验证存在一台判定证明关系的图灵机所需的所有细节，比证明该关系（理解为哥德尔数上的关系）是原始递归的复杂得多。
 
-The assumption that $\Th{T}$ is axiomatizable can be generalized to
-the assumption that the set of theorems of~$\Th{T}$ is !!{computably
-enumerable}. If our model of computability requires G\"odel numbering
-(e.g., the partial recursive functions), then this amounts to saying
-that 
-\[
+$\Th{T}$ 是可公理化的这一假设可以推广为：$\Th{T}$ 的定理集是可计算枚举的。如果我们的计算模型需要哥德尔编码（例如部分递归函数），那么这等价于说 \[
   \Gn{\Th{T}} = \Setabs{\Gn{!A}}{\Th{T} \Proves !A}
-\]
-is !!{c.e.} This is implied by the assumption that $\Th{T}$ is
-axiomatizable.
+\] 是 c.e.\@。$\Th{T}$ 是可公理化的这一假设蕴含了这一点。
 
-\begin{prop}\ollabel{prop:ax-theory-ce} Suppose $\Th{T}$ is
-axiomatized by a decidable set of axioms~$\Gamma$. Then $\Th{T}$ is
-!!{c.e.}
+\begin{prop}\ollabel{prop:ax-theory-ce} 设 $\Th{T}$ 由一个可判定的公理集~$\Gamma$ 公理化。则 $\Th{T}$ 是 c.e.\@
 \end{prop}
 
 \begin{proof}
-  Informally, we can computably enumerate all theorems of~$\Th{T}$ by
-  searching through all possible proofs in the language
-  of~$\Th{T}$ in whatever proof system we prefer. Acceptable proof
-  systems have the property that it can be decided if an arrangements
-  of symbols and !!{formula}s is a correct proof, e.g., testing whether
-  a given putative application of an inference rule in natural deduction is
-  correct is decidable. The assumption that $\Gamma$ is decidable
-  allows us to check if a correct !!{derivation} is !!a{derivation}
-  \emph{from}~$\Gamma$. E.g., we can check, for each open assumption
-  of a natural deduction !!{derivation}, that it is an axiom in~$\Gamma$.
-  If !!a{derivation} passes these checks, we output the end-!!{formula}; it
-  is a theorem of~$\Th{T}$.
+  非形式地说，我们可以通过在我们偏好的任何证明系统中搜索 $\Th{T}$ 的语言中所有可能的证明，来可计算地枚举 $\Th{T}$ 的所有定理。可接受的证明系统具有这样的性质：可以判定一个符号和公式的排列是否是一个正确的证明，例如，检验自然演绎中某个推理规则的给定应用是否正确是可判定的。$\Gamma$ 是可判定的这一假设使我们能够检查一个正确的推导是否是\emph{从}~$\Gamma$ 出发的推导。例如，对于自然演绎推导中的每个未解除的假设，我们可以检查它是否是 $\Gamma$ 中的公理。如果一个推导通过了这些检查，我们就输出其最终公式；它就是 $\Th{T}$ 的一个定理。
 
-  More formally, we can proceed as follows. If $\Gn{\Gamma}$ is
-  primitive recursive, \tagrefs{prfAX/{inc:art:pax:prop:prf-prim-rec},
+  更形式化地说，我们可以如下进行。如果 $\Gn{\Gamma}$ 是原始递归的，则 \tagrefs{prfAX/{inc:art:pax:prop:prf-prim-rec},
   prfSC/{inc:art:plk:prop:prf-prim-rec},
-  prfND/{inc:art:pnd:prop:prf-prim-rec}} shows
-  that the proof predicate $\Prf[\Gamma]$ is primitive recursive. It
-  takes little effort to verify that the same proof shows that if
-  $\Gn{\Gamma}$ is computable then $\Prf[\Gamma]$ is computable. Let
-  $f(y) = \umin{x}{\Prf[\Gamma](x,y)}$. Obviously, $f(y)\fdefined$ iff
-  $y$ is the G\"odel number of a theorem of~$\Th{T}$. Thus,
-  $\Gn{\Th{T}}$ is the domain of a partial computable function and so
-  !!{c.e.} by \olref[cmp][thy][eqc]{thm:ce-equiv}.
+  prfND/{inc:art:pnd:prop:prf-prim-rec}} 表明证明谓词 $\Prf[\Gamma]$ 是原始递归的。不难验证，同样的证明也表明：如果 $\Gn{\Gamma}$ 是可计算的，那么 $\Prf[\Gamma]$ 也是可计算的。令 $f(y) = \umin{x}{\Prf[\Gamma](x,y)}$。显然，$f(y)\fdefined$ 当且仅当 $y$ 是 $\Th{T}$ 的某个定理的哥德尔数。因此，$\Gn{\Th{T}}$ 是一个部分可计算函数的定义域，从而由 \olref[cmp][thy][eqc]{thm:ce-equiv} 可知它是 c.e.\@
 \end{proof}
 
-It is perhaps surprising that the converse of
-\olref{prop:ax-theory-ce} is also true: every !!{c.e.} theory is
-axiomatizable. This is proved using what's known as ``Craig's trick.''
+或许令人惊讶的是，\olref{prop:ax-theory-ce} 的逆命题也成立：每个 c.e.\@ 理论都是可公理化的。这要用到所谓的``Craig（克雷格）技巧''来证明。
 
 \begin{prop}\ollabel{prop:ce-ax}
-If\/ $\Th{T}$ is !!a{c.e.} theory, then $\Th{T}$ is axiomatizable by a
-decidable (in fact, primitive recursive) set of axioms.
+如果 $\Th{T}$ 是一个 c.e.\@ 理论，则 $\Th{T}$ 可由一个可判定的（事实上，原始递归的）公理集公理化。
 \end{prop}
 
 \begin{proof}
-  Since $\Th{T}$ is !!{c.e.}, there is a computable enumeration~$f$ of
-  it. We may assume that the enumeration is primitive recursive by
-  \olref[cmp][thy][eqc]{thm:ce-equiv},
-  case~\olref[cmp][thy][eqc]{case:ran-prim}. Let $!A_n$ be the $n$-th
-  element of this enumeration. Consider the
-  set
+  由于 $\Th{T}$ 是 c.e.\@，存在它的一个可计算枚举~$f$。根据 \olref[cmp][thy][eqc]{thm:ce-equiv} 的 \olref[cmp][thy][eqc]{case:ran-prim} 情形，我们可以假设该枚举是原始递归的。令 $!A_n$ 为该枚举中的第 $n$ 个元素。考虑集合
   \[
   \Gamma = \{!A_0, !A_1 \land !A_1, !A_2 \land (!A_2 \land !A_2), \dots\}
   \]
-  $\Gamma$ clearly axiomatizes~$\Th{T}$, since every theorem
-  of~$\Th{T}$ appears as some $!A_n$ in the enumeration, and follows
-  from $!A_n \land \dots \land !A_n$ ($n+1$ copies of $!A_n$), which
-  is the $(n+1)$-st element of $\Gamma$. $\Gamma$ is also decidable: to
-  test if $!A \in \Gamma$, determine if it is of the form $!B \land
-  (!B \land \dots \land !B)\dots)$, and if so, how many conjuncts
-  of~$!B$ it contains. Let $n$ be that number. If $!A$ is not a
-  conjunction of identical conjuncts, let $n=0$ and $!B \ident !A$.
-  Then $!A \in \Gamma$ iff $!B \ident !A_{n}$
+  $\Gamma$ 显然公理化了~$\Th{T}$，因为 $\Th{T}$ 的每个定理都会作为某个 $!A_n$ 出现在枚举中，并且可以从 $!A_n \land \dots \land !A_n$（即 $!A_n$ 的 $n+1$ 个副本）推导出来，而后者正是 $\Gamma$ 的第 $(n+1)$ 个元素。$\Gamma$ 也是可判定的：要检验 $!A \in \Gamma$，先判断它是否具有 $!B \land
+  (!B \land \dots \land !B)\dots)$ 的形式，如果是，再计算它包含多少个~$!B$ 作为合取支。设 $n$ 为该数目。如果 $!A$ 不是由相同合取支构成的合取式，则令 $n=0$ 且 $!B \ident !A$。那么 $!A \in \Gamma$ 当且仅当 $!B \ident !A_{n}$。
 
-  More formally, we can proceed as follows. Let  $f(n) = \Gn{!A_n}$ be
-  a primitive recursive enumeration of~$\Th{T}$. Verify that the
-  functions~$i$ and $b$ such that $i(\Gn{A}) = n$ and $b(\Gn{A}) =
-  \Gn{B}$ are primitive recursive. $!A \in \Gamma$ iff $b(\Gn{A}) =
-  f(i(\Gn{A}))$. The latter expression defines a primitive recursive
-  predicate.
+  更形式化地说，我们可以如下进行。令 $f(n) = \Gn{!A_n}$ 为 $\Th{T}$ 的一个原始递归枚举。验证满足 $i(\Gn{A}) = n$ 且 $b(\Gn{A}) =
+  \Gn{B}$ 的函数~$i$ 和~$b$ 是原始递归的。$!A \in \Gamma$ 当且仅当 $b(\Gn{A}) =
+  f(i(\Gn{A}))$。后一个表达式定义了一个原始递归谓词。
 \end{proof}
 
 \begin{prob}
-  Assume $f$ is a primitive recursive enumeration of some set of
-  G\"odel numbers of !!{formula}s~$\Gamma$. Verify that the functions $b$
-  and~$i$ in the proof of \olref{prop:ce-ax} are primitive recursive.
+  假设 $f$ 是某个由公式的哥德尔数构成的集合~$\Gamma$ 的一个原始递归枚举。验证 \olref{prop:ce-ax} 的证明中的函数 $b$ 和~$i$ 是原始递归的。
 \end{prob}
 
 \end{document}

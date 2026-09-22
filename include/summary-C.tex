@@ -1,31 +1,23 @@
-\emph{Proof systems} provide purely syntactic methods for
-characterizing consequence and compatibility between sentences.
-\emph{Natural deduction} is one such !!{derivation} system. A \emph{derivation}
-in it consists of a tree of formulas. The topmost formula !!a{derivation}
-are \emph{assumptions}. All other formulas, for the !!{derivation} to be
-correct, must be correctly justified by one of a number of
-\emph{inference rules}. These come in pairs; an introduction and an
-elimination rule for each connective and quantifier. For instance, if
-a formula~$!A$ is justified by a $\Elim{\lif}$ rule, the preceding
-formulas (the \emph{premises}) must be $!B \lif !A$ and $!B$ (for
-some~$!B$). Some inference rules also allow assumptions to be
-\emph{discharged}. For instance, if $!A \lif !B$ is inferred from $!B$
-using $\Intro{\lif}$, any occurrences of~$!A$ as assumptions in the
-!!{derivation}leading to the premise~$!B$ may be discharged, given a
-label that is also recorded at the inference.
+\emph{证明系统}提供了刻画语句间后承关系与相容性的纯句法方法。
+\emph{自然演绎}就是这样一个推导系统。其中的一个\emph{推导}由一棵公式树构成。
+推导最顶端的公式是\emph{假设}。
+为使推导正确，所有其他公式都必须通过若干\emph{推理规则}之一获得正确辩护。
+这些规则成对出现：每个联结词和量词都有一条引入规则和一条消去规则。
+例如，如果一个公式~$!A$ 通过 $\Elim{\lif}$ 规则获得辩护，
+那么它前面的公式（即\emph{前提}）必须是 $!B \lif !A$ 和 $!B$（对某个~$!B$）。
+有些推理规则还允许将假设\emph{解除}。
+例如，如果通过 $\Intro{\lif}$ 从 $!B$ 推出 $!A \lif !B$，
+那么在导出前提~$!B$ 的子推导中，所有作为假设出现的~$!A$ 都可以被解除，
+并被赋予一个标签，该标签亦记录于该推理处。
 
-If there is !!a{derivation} with end formula~$!A$ and all assumptions are
-discharged, we say $!A$ is a theorem and write~$\Proves !A$. If all
-undischarged assumptions are in some set~$\Gamma$, we say $!A$ is
-\emph{derivable from}~$\Gamma$ and write $\Gamma \Proves !A$. If
-$\Gamma \Proves \lfalse$ we say $\Gamma$ is \emph{inconsistent},
-otherwise \emph{consistent}. These notions are interrelated, e.g.,
-$\Gamma \Proves !A$ iff $\Gamma \cup \{\lnot !A\} \Proves
-\lfalse$. They are also related to the corresponding semantic notions,
-e.g., if $\Gamma \Proves !A$ then $\Gamma \Entails !A$. This property
-of natural deduction---what can be derived from $\Gamma$ is guaranteed
-to be entailed by~$\Gamma$---is called \emph{soundness}. The
-\emph{soundness theorem} is proved by induction on the length of
-derivations, showing that each individual inference preserves
-entailment of its conclusion from open assumptions provided its premises are
-entailed by their open assumptions.
+如果存在一个末公式为~$!A$ 且所有假设均被解除的推导，则我们称 $!A$ 是一个定理，
+并记作~$\Proves !A$。
+如果所有未解除的假设都属于某个集合~$\Gamma$，则我们称 $!A$ \emph{可从}~$\Gamma$ \emph{推导}，
+并记作 $\Gamma \Proves !A$。
+如果 $\Gamma \Proves \lfalse$，我们称 $\Gamma$ 是\emph{不一致的}，否则称其为\emph{一致的}。
+这些概念互相关联，例如，$\Gamma \Proves !A$ 当且仅当 $\Gamma \cup \{\lnot !A\} \Proves
+\lfalse$。
+它们也与相应的语义概念相关，例如，如果 $\Gamma \Proves !A$ 那么 $\Gamma \Entails !A$。
+自然演绎的这一性质——从~$\Gamma$ 可推导出的公式都保证为~$\Gamma$ 的语义后承——称为\emph{可靠性}。
+\emph{可靠性定理}通过对推导长度进行归纳来证明，表明每次单独的推理都保持了语义后承关系：
+只要各前提为各自未解除假设的语义后承，其结论亦为未解除假设的语义后承。

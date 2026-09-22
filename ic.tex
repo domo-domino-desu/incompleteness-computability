@@ -5,7 +5,7 @@
 % driver file ic.tex to produce text
 
 \preto\OLEndChapterHook{\IfFileExists{include/summary-\thechapter}
-        {\section*{Summary}\addcontentsline{toc}{section}{Summary}
+        {\section*{摘要}\addcontentsline{toc}{section}{摘要}
         \let\emph\textbf\input{include/summary-\thechapter}\let\emph\textit}{}}
 
 \problemsperchapter
@@ -29,7 +29,7 @@
 
 \olimport*[incompleteness/incompleteness-provability]{incompleteness-provability}
 
-\chapter{Computability and Incompleteness}\label{comp-inc:chap}
+\chapter{可计算性与不完全性}\label{comp-inc:chap}
 
 \olimport*[computability/computability-theory]{introduction}
 \olimport*[computability/computability-theory]{coding-computations}
@@ -49,7 +49,7 @@
 
 \OLEndChapterHook
 
-\chapter{Models of Arithmetic}\label{mod:chap}
+\chapter{算术模型}\label{mod:chap}
 
 \olimport*[model-theory/models-of-arithmetic]{introduction}
 
@@ -71,7 +71,7 @@
 
 \OLEndChapterHook
 
-\chapter{Second-Order Logic}\label{sol:chap}
+\chapter{二阶逻辑}\label{sol:chap}
 
 \olimport*[second-order-logic/syntax-and-semantics]{introduction}
 
@@ -106,7 +106,7 @@
 
 \OLEndChapterHook
 
-\chapter{The Lambda Calculus}\label{lambda:chap}
+\chapter{λ演算}\label{lambda:chap}
 
 \olimport*[lambda-calculus/introduction]{overview}
 
@@ -118,7 +118,7 @@
 
 \olimport*[lambda-calculus/introduction]{currying}
 
-\olsection{Lambda Definability}
+\olsection{λ可定义性}
 
 \let\oldolsection\olsection
 \def\olsection#1{}
@@ -144,7 +144,7 @@
 \let\intro\comment
 \let\endintro\endcomment
 
-\chapter{First-order Logic}\label{fol:chap}
+\chapter{一阶逻辑}\label{fol:chap}
 
 \olimport*[first-order-logic/syntax-and-semantics]{first-order-languages}
 
@@ -160,24 +160,21 @@
 
 \olimport*[first-order-logic/syntax-and-semantics]{assignments}
 
+
 \olimport*[first-order-logic/syntax-and-semantics]{extensionality}
 
 \olimport*[first-order-logic/syntax-and-semantics]{semantic-notions}
 
-\section{Theories}
+\section{理论}
 
 \begin{defn}
-A set of !!{sentence}s~$\Gamma$ is \emph{closed} iff, whenever
-$\Gamma \Entails !A$ then $!A \in \Gamma$.  The \emph{closure} of a set
-of !!{sentence}s~$\Gamma$ is $\Setabs{!A}{\Gamma \Entails !A}$.
+一个语句集~$\Gamma$ 是\emph{封闭的}，当且仅当：只要 $\Gamma \Entails !A$，就有 $!A \in \Gamma$。语句集~$\Gamma$ 的\emph{闭包}是 $\Setabs{!A}{\Gamma \Entails !A}$。
 
-We say that~$\Gamma$ is \emph{axiomatized by} a set of
-sentences~$\Delta$ if $\Gamma$ is the closure of~$\Delta$.
+我们说~$\Gamma$ \emph{由}语句集~$\Delta$ \emph{公理化}，是指 $\Gamma$ 是~$\Delta$ 的闭包。
 \end{defn}
 
 \begin{ex}
-The theory of strict linear orders in the language~$\Lang L_<$ is
-axiomatized by the set
+语言~$\Lang L_<$ 中的严格线性序理论由集合
 \begin{align*}
 & \lforall[x][\lnot x < x], \\
 & \lforall[x][\lforall[y][((x < y \lor y <
@@ -185,26 +182,22 @@ axiomatized by the set
 & \lforall[x][\lforall[y][\lforall[z][((x < y
       \land y < z) \lif x < z)]]]
 \end{align*}
-It completely captures the intended !!{structure}s: every strict
-linear order is a model of this axiom system, and vice versa, if $R$
-is a linear order on a set $X$, then the structure $\Struct M$ with
-$\Domain M = X$ and $\Assign{<}{M} = R$ is a model of this theory.
+公理化。它完全刻画了预期的结构：每个严格线性序都是此公理系统的模型，反之，若 $R$ 是集合 $X$ 上的线性序，则结构 $\Struct M$（其中 $\Domain M = X$ 且 $\Assign{<}{M} = R$）就是这个理论的模型。
 \end{ex}
 
 \begin{ex}
-The theory of groups in the language $\Obj 1$ (!!{constant}), $\cdot$
-(two-place !!{function}) is axiomatized by
+语言 $\Obj 1$（常项符号）、$\cdot$（二元函数符号）中的群理论由
 \begin{align*}
 & \lforall[x][(x \cdot \Obj 1) = x]\\
 & \lforall[x][\lforall[y][\lforall[z][\eq[(x \cdot (y \cdot z))][((x
           \cdot y) \cdot z)]]]]\\
 & \lforall[x][\lexists[y][(x \cdot y) = \Obj 1]]
 \end{align*}
+公理化。
 \end{ex}
 
 \begin{ex}
-The theory of Peano arithmetic is axiomatized by the following
-sentences in the language of arithmetic~$\Lang L_A$.
+Peano（皮亚诺）算术理论由算术语言~$\Lang L_A$ 中的下列语句公理化：
 \begin{align*}
 & \lnot\lexists[x][x' = \Obj 0]\\
 & \lforall[x][\lforall[y][(x' = y' \lif x = y)]]\\
@@ -213,20 +206,17 @@ sentences in the language of arithmetic~$\Lang L_A$.
 & \lforall[x][\lforall[y][\eq[(x + y')][(x + y)']]]\\
 & \lforall[x][\eq[(x \times \Obj 0)][\Obj 0]]\\
 & \lforall[x][\lforall[y][\eq[(x \times y')][((x \times y) + x)]]]\\
-\intertext{plus all sentences of the form}
+\intertext{再加上所有如下形式的句子}
 & (!A(\Obj 0) \land \lforall[x][(!A(x) \lif !A(x'))]) \lif \lforall[x][!A(x)]
 \end{align*}
-Since there are infinitely many sentences of the latter form, this
-axiom system is infinite.  The latter form is called the
-\emph{induction schema}. (Actually, the induction schema is a bit more
-complicated than we let on here.)
+由于后一种形式有无穷多语句，这个公理系统是无限的。后一种形式称为\emph{归纳模式}。（实际上，归纳模式比我们这里描述的要稍微复杂一点。）
 
-The third axiom is an \emph{explicit definition} of~$<$.
+第三条公理是~$<$ 的一个\emph{显定义}。
 \end{ex}
 
 \OLEndChapterHook
 
-\chapter{Natural Deduction}\label{nd:chap}
+\chapter{自然演绎}\label{nd:chap}
 
 \olimport*[first-order-logic/proof-systems]{natural-deduction}[\nosection]
 
@@ -255,9 +245,9 @@ The third axiom is an \emph{explicit definition} of~$<$.
 \stopproblems
 \def\ifproblems#1{}
 
-\def\figurename{Fig.}
+\def\figurename{图}
 
-\chapter{Biographies}\label{bios:chap}
+\chapter{传记}\label{bios:chap}
 
 \olimport*[history/biographies]{alonzo-church}
 
