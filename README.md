@@ -15,6 +15,13 @@ git submodule update --remote --recursive OpenLogic
 git add OpenLogic
 ```
 
+The Chinese edition needs LuaLaTeX (the text is typeset with `ctex` and
+New Computer Modern), so build it with `make`, which runs
+`latexmk -lualatex`, rather than with `pdflatex`. Every push to
+`master` builds `ic-screen.pdf`, `ic-print.pdf` and
+`ic-print-cover.pdf` in GitHub Actions and attaches them to a
+[release](https://github.com/domo-domino-desu/incompleteness-computability/releases).
+
 ![Book Cover](https://ic.openlogicproject.org/ic.png)
 
 Textbook on Gödel's incompleteness theorems and computability

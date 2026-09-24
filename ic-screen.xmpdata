@@ -1,8 +1,8 @@
-\Title{Incompleteness and Computability: An Open Introduction to Gödel's Theorems}
+\Title{不完全性与可计算性：Gödel 定理的开放导论}
 \Author{Richard Zach\sep Open Logic Project}
-\Language{en-US}
-\Keywords{logic\sep incompleteness\sep Kurt Gödel\sep
-recursive functions\sep lambda calculus}
+\Language{zh-CN}
+\Keywords{逻辑\sep 不完全性\sep Kurt Gödel\sep
+递归函数\sep λ演算}
 \Copyright{CC BY 4.0}
 \PublicationType{book}
 \URLlink{https://github.com/rzach/incompleteness-computability}
